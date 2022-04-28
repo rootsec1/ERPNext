@@ -829,7 +829,7 @@ def set_active_domains(args):
 def update_stock_settings():
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"
-	stock_settings.valuation_method = "FIFO"
+	stock_settings.valuation_method = "Moving Average"
 	stock_settings.default_warehouse = frappe.db.get_value(
 		"Warehouse", {"warehouse_name": _("Stores")}
 	)
