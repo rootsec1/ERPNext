@@ -22,25 +22,21 @@ class PriceList(Document):
 		self.delete_price_list_details_key()
 
 	def set_default_if_missing(self):
-		if cint(self.selling):
-			if not frappe.db.get_value("Selling Settings", None, "selling_price_list"):
-				frappe.db.set_value(
-					dt="Selling Settings",
-					dn="Selling Settings",
-					field="selling_price_list",
-					val=self.name
-				)
-				frappe.set_value("Selling Settings", "Selling Settings", "selling_price_list", self.name)
+		if not frappe.db.get_value("Selling Settings", None, "selling_price_list"):
+			frappe.db.set_value(
+				dt="Selling Settings",
+				dn="Selling Settings",
+				field="selling_price_list",
+				val=self.name
+			)
 
-		elif cint(self.buying):
-			if not frappe.db.get_value("Buying Settings", None, "buying_price_list"):
-				frappe.db.set_value(
-					dt="Buying Settings",
-					dn="Buying Settings",
-					field="buying_price_list",
-					val=self.name
-				)
-				frappe.set_value("Buying Settings", "Buying Settings", "buying_price_list", self.name)
+		if not frappe.db.get_value("Buying Settings", None, "buying_price_list"):
+			frappe.db.set_value(
+				dt="Buying Settings",
+				dn="Buying Settings",
+				field="buying_price_list",
+				val=self.name
+			)
 
 	def update_item_price(self):
 		frappe.db.sql(
