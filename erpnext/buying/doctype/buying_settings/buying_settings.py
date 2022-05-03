@@ -12,11 +12,19 @@ from frappe.utils import cint
 
 class BuyingSettings(Document):
 	def on_update(self):
+		# Custom price list
+		if not self.buying_price_list:
+			self.buying_price_list = "Indian"
+			self.save()
 		self.toggle_discount_accounting_fields()
 
 	def validate(self):
-		for key in ["supplier_group", "supp_master_name", "maintain_same_rate", "buying_price_list"]:
+		for key in ["supplier_group", "supp_master_name", "maintain_same_rate"]:
 			frappe.db.set_default(key, self.get(key, ""))
+		
+		# Custom price list
+		if not frappe.db.get_default("buying_price_list"):
+			frappe.db.set_default("buying_price_list", self.get("buying_price_list", "Indian"))
 
 		from erpnext.setup.doctype.naming_series.naming_series import set_by_naming_series
 

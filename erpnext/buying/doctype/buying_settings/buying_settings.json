@@ -44,8 +44,7 @@
    "fieldname": "buying_price_list",
    "fieldtype": "Link",
    "label": "Default Buying Price List",
-   "options": "Price List",
-   "default": "Indian"
+   "options": "Price List"
   },
   {
    "fieldname": "po_required",

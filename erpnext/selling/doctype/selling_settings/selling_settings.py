@@ -12,6 +12,10 @@ from frappe.utils import cint
 
 class SellingSettings(Document):
 	def on_update(self):
+		# Custom price list
+		if not self.selling_price_list:
+			self.selling_price_list = "Indian"
+			self.save()
 		self.toggle_hide_tax_id()
 		self.toggle_editable_rate_for_bundle_items()
 		self.toggle_discount_accounting_fields()
@@ -22,10 +26,13 @@ class SellingSettings(Document):
 			"customer_group",
 			"territory",
 			"maintain_same_sales_rate",
-			"editable_price_list_rate",
-			"selling_price_list",
+			"editable_price_list_rate"
 		]:
 			frappe.db.set_default(key, self.get(key, ""))
+		
+		# Custom price list
+		if not frappe.db.get_default("selling_price_list"):
+			frappe.db.set_default("selling_price_list", self.get("selling_price_list", "Indian"))
 
 		from erpnext.setup.doctype.naming_series.naming_series import set_by_naming_series
 
