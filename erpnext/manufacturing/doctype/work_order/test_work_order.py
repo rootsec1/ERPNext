@@ -417,7 +417,7 @@ class TestWorkOrder(FrappeTestCase):
 					"doctype": "Item Price",
 					"item_code": "_Test FG Non Stock Item",
 					"price_list_rate": 1000,
-					"price_list": "Standard Buying",
+					"price_list": "Indian",
 				}
 			).insert(ignore_permissions=True)
 

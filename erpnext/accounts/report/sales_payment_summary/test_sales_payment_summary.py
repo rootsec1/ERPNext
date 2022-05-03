@@ -181,7 +181,7 @@ def create_records():
 	frappe.get_doc(
 		{
 			"doctype": "Item Price",
-			"price_list": "Standard Selling",
+			"price_list": "Indian",
 			"item_code": item.item_code,
 			"price_list_rate": 10000,
 		}

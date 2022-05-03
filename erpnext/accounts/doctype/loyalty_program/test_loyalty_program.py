@@ -347,12 +347,12 @@ def create_records():
 
 	# create item price
 	if not frappe.db.exists(
-		"Item Price", {"price_list": "Standard Selling", "item_code": "Loyal Item"}
+		"Item Price", {"price_list": "Indian", "item_code": "Loyal Item"}
 	):
 		frappe.get_doc(
 			{
 				"doctype": "Item Price",
-				"price_list": "Standard Selling",
+				"price_list": "Indian",
 				"item_code": "Loyal Item",
 				"price_list_rate": 10000,
 			}

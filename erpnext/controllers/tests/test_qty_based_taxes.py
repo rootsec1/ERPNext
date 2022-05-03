@@ -99,9 +99,9 @@ class TestTaxes(unittest.TestCase):
 					"customer": self.customer.name,
 					"buying_price_list"
 					if dt.startswith("Purchase")
-					else "selling_price_list": "Standard Buying"
+					else "selling_price_list": "Indian"
 					if dt.startswith("Purchase")
-					else "Standard Selling",
+					else "Indian",
 					"items": [
 						{
 							"item_code": self.item.name,

@@ -775,20 +775,12 @@ def install_defaults(args=None):
 		# Price Lists
 		{
 			"doctype": "Price List",
-			"price_list_name": _("Standard Buying"),
+			"price_list_name": _("Indian"),
 			"enabled": 1,
 			"buying": 1,
-			"selling": 0,
-			"currency": args.currency,
-		},
-		{
-			"doctype": "Price List",
-			"price_list_name": _("Standard Selling"),
-			"enabled": 1,
-			"buying": 0,
 			"selling": 1,
 			"currency": args.currency,
-		},
+		}
 	]
 
 	make_records(records)

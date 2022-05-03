@@ -30,7 +30,7 @@ class TestCustomer(FrappeTestCase):
 		doc.customer_group_name = "_Testing Customer Group"
 		doc.payment_terms = "_Test Payment Term Template 3"
 		doc.accounts = []
-		doc.default_price_list = "Standard Buying"
+		doc.default_price_list = "Indian"
 		doc.credit_limits = []
 		test_account_details = {
 			"company": "_Test Company",

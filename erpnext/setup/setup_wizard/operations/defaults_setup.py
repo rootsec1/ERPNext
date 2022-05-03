@@ -86,17 +86,14 @@ def set_no_copy_fields_in_variant_settings():
 
 
 def create_price_lists(args):
-	for pl_type, pl_name in (("Selling", _("Standard Selling")), ("Buying", _("Standard Buying"))):
-		frappe.get_doc(
-			{
-				"doctype": "Price List",
-				"price_list_name": pl_name,
-				"enabled": 1,
-				"buying": 1 if pl_type == "Buying" else 0,
-				"selling": 1 if pl_type == "Selling" else 0,
-				"currency": args["currency"],
-			}
-		).insert()
+	frappe.get_doc({
+		"doctype": "Price List",
+		"price_list_name": _("Indian"),
+		"enabled": 1,
+		"buying": 1,
+		"selling": 1,
+		"currency": args.currency
+	}).insert()
 
 
 def create_employee_for_self(args):
