@@ -58,7 +58,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Default Price List",
-   "options": "Price List"
+   "options": "Price List",
+   "default": "Indian"
   },
   {
    "fieldname": "column_break_5",
